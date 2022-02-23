@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping
+DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping3.0.dtd">
+<hibernate-mapping>
+    <class name="es.albarregas.beans.Modulo" table="modulos">
+        <id column="idModulo" name="idModulo">
+            <generator class="identity"/>
+        </id>
+        <property name="denominacion">
+            <column length="50" name="denominacion" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

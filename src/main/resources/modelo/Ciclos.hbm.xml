@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping
+DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping3.0.dtd">
+<hibernate-mapping>
+    <class name="es.albarregas.beans.Ciclo" table="ciclos"
+           dynamic-update="true">
+        <id column="idCiclo" name="idCiclo" type="java.lang.Integer">
+            <generator class="identity"/>
+        </id>
+        <property name="nombre">
+            <column length="50" name="nombre" not-null="true" />
+        </property>
+        <list name="modulos" cascade="save-update, delete-orphan"
+              fetch="join" lazy="false">
+            <key>
+                <column name="idCiclo" />
+            </key>
+            <index>
+                <column name="orden" />
+            </index>
+            <one-to-many class="es.albarregas.beans.Modulo"/>
+        </list>
+    </class>
+</hibernate-mapping>
